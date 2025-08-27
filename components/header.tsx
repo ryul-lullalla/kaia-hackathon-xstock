@@ -43,15 +43,8 @@ export function Header() {
 
   // Check if current chain is Kaia Testnet
   const isKaiaTestnet = chainId === wagmiConfig.chains[0].id;
-  console.log({ chainId, wagmi: wagmiConfig.chains[0].id });
 
   // Debug logging
-  console.log("Wallet state:", {
-    isConnected,
-    address,
-    chainId,
-    isKaiaTestnet,
-  });
 
   const handleWalletAction = async () => {
     try {
@@ -81,7 +74,7 @@ export function Header() {
         <div className="flex items-center space-x-6">
           <div className="flex items-center space-x-3">
             <Link href="/" className="flex items-center space-x-2">
-              <h1 className="text-2xl font-bold text-primary">xStock</h1>
+              <h1 className="text-2xl font-bold text-primary">kStock</h1>
             </Link>
           </div>
 

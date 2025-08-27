@@ -10,14 +10,14 @@ export default function FaucetPage() {
           Token Faucet
         </h1>
         <p className="text-lg text-muted-foreground">
-          Get free tokens to start using the xStock protocol. Choose between
+          Get free tokens to start using the kStock protocol. Choose between
           kxAPPLE tokens for liquidity or USDT for collateral.
         </p>
       </div>
 
       <Tabs defaultValue="kxapple" className="w-full">
         <TabsList className="grid w-full grid-cols-2 mb-6">
-          <TabsTrigger value="kxapple">KX Apple Faucet</TabsTrigger>
+          <TabsTrigger value="kxapple">kxAPPLE Faucet</TabsTrigger>
           <TabsTrigger value="usdt">USDT Faucet</TabsTrigger>
         </TabsList>
 
@@ -28,7 +28,7 @@ export default function FaucetPage() {
 
           <div className="p-6 rounded-lg bg-card border border-border">
             <h3 className="text-xl font-semibold mb-4">
-              How to use KX Apple Faucet
+              How to use kxAPPLE Faucet
             </h3>
             <ol className="list-decimal list-inside space-y-2 text-muted-foreground">
               <li>Connect your wallet using the button in the header</li>

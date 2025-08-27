@@ -21,6 +21,7 @@ import { toast } from "sonner";
 import { Coins, Loader2 } from "lucide-react";
 import { waitForTransactionReceipt } from "@wagmi/core";
 import { wagmiConfig } from "@/lib/wagmi";
+import Image from "next/image";
 
 export function Faucet() {
   const { address: userAddress, isConnected } = useAccount();
@@ -77,8 +78,14 @@ export function Faucet() {
     <Card className="w-full max-w-md">
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
-          <Coins className="h-5 w-5 text-primary" />
-          KX Apple Faucet
+          <Image
+            src="/XAPPL_LOGO.svg"
+            alt="kxApple"
+            width={28}
+            height={28}
+            className="rounded-full"
+          />
+          kxAPPLE Faucet
         </CardTitle>
         <CardDescription>
           Get free kxApple tokens to start using the protocol

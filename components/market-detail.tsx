@@ -13,7 +13,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-
+import Image from "next/image";
 import {
   Card,
   CardContent,
@@ -66,7 +66,7 @@ import { wagmiConfig } from "@/lib/wagmi";
 
 export function MarketDetail() {
   const { address: userAddress, isConnected } = useAccount();
-  console.log({ userAddress });
+
   const [supplyAmount, setSupplyAmount] = useState("");
   const [borrowAmount, setBorrowAmount] = useState("");
   const [activeTab, setActiveTab] = useState<
@@ -121,7 +121,6 @@ export function MarketDetail() {
   // Get market data and user market data
   const { marketData, userData, refetchCompleteMarketData } =
     useCompleteMarketData(userAddress);
-  console.log({ marketData });
 
   const {
     approve,
@@ -136,8 +135,6 @@ export function MarketDetail() {
       userAddress,
       lendingVaultContract.address
     );
-
-  console.log({ supplyAllowance, spender: lendingVaultContract.address });
 
   const { borrow, hash: borrowHash, isPending: isBorrowPending } = useBorrow();
   const { repay, hash: repayHash, isPending: isRepaying } = useRepay();
@@ -157,7 +154,7 @@ export function MarketDetail() {
   const { isSuccess: isRepaySuccess } = useTransactionReceipt(repayHash);
   const { isSuccess: isDepositSuccess } = useTransactionReceipt(depositHash);
   const { isSuccess: isWithdrawSuccess } = useTransactionReceipt(withdrawHash);
-  console.log({ isApproveSuccess });
+
   // Reset approval action when user address changes
   useEffect(() => {
     setLastApproveAction(null);
@@ -271,7 +268,7 @@ export function MarketDetail() {
         const receipt = await waitForTransactionReceipt(wagmiConfig, {
           hash: result,
         });
-        console.log({ receipt });
+
         if (!!receipt) {
           toast.success("kxApple approved successfully!");
         } else {
@@ -280,7 +277,6 @@ export function MarketDetail() {
       }
     } catch (error) {
       toast.error("Approval failed");
-      console.error({ error });
     } finally {
       setIsApprovingSupply(false);
     }
@@ -290,7 +286,7 @@ export function MarketDetail() {
     if (!userAddress || !modalSupplyAmount) return;
     try {
       const result = await deposit(modalSupplyAmount, userAddress);
-      console.log({ result });
+
       if (!!result) {
         toast.success("Supply submitted");
       } else {
@@ -299,7 +295,7 @@ export function MarketDetail() {
       const receipt = await waitForTransactionReceipt(wagmiConfig, {
         hash: result,
       });
-      console.log({ receipt });
+
       if (!!receipt) {
         toast.success("Supplied Successfully!");
         refetchCompleteMarketData();
@@ -321,7 +317,7 @@ export function MarketDetail() {
         userAddress,
         userAddress
       );
-      console.log({ result });
+
       if (!!result) {
         toast.success("Withdrawal submitted");
       } else {
@@ -331,7 +327,7 @@ export function MarketDetail() {
       const receipt = await waitForTransactionReceipt(wagmiConfig, {
         hash: result,
       });
-      console.log({ receipt });
+
       if (!!receipt) {
         toast.success("Withdrawal submitted");
         refetchCompleteMarketData();
@@ -355,7 +351,7 @@ export function MarketDetail() {
         const receipt = await waitForTransactionReceipt(wagmiConfig, {
           hash: result,
         });
-        console.log({ receipt });
+
         if (!!receipt) {
           toast.success("Borrow Success!");
           refetchCompleteMarketData();
@@ -390,13 +386,13 @@ export function MarketDetail() {
     if (!userAddress || !modalRepayAmount) return;
     try {
       const result = await repay(modalRepayAmount, userAddress);
-      console.log({ result });
+
       if (!!result) {
         toast.success("Repay submitted");
         const receipt = await waitForTransactionReceipt(wagmiConfig, {
           hash: result,
         });
-        console.log({ receipt });
+
         if (!!receipt) {
           toast.success("Repaid Successfully!");
           refetchKxStockBalance();
@@ -529,9 +525,16 @@ export function MarketDetail() {
         <CardContent className="p-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-gradient-to-r from-orange-400 to-red-500 rounded-full flex items-center justify-center">
+              {/* <div className="w-12 h-12 bg-gradient-to-r from-orange-400 to-red-500 rounded-full flex items-center justify-center">
                 <span className="text-white font-bold">kX</span>
-              </div>
+              </div> */}
+              <Image
+                src="/XAPPL_LOGO.svg"
+                alt="kxApple"
+                width={48}
+                height={48}
+                className="rounded-full"
+              />
               <div>
                 <h2 className="text-lg font-semibold text-white">kxAPPLE</h2>
                 <p className="text-sm text-gray-400">kaia xAPPLE</p>
@@ -998,7 +1001,14 @@ export function MarketDetail() {
         <DialogContent className="bg-gray-800 border-gray-700 text-white max-w-md">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
-              <ArrowUp className="h-5 w-5 text-green-500" />
+              {/* <ArrowUp className="h-5 w-5 text-green-500" /> */}
+              <Image
+                src="/XAPPL_LOGO.svg"
+                alt="kxApple"
+                width={20}
+                height={20}
+                className="rounded-full"
+              />
               Supply kxAPPLE
             </DialogTitle>
             <DialogDescription className="text-gray-400">

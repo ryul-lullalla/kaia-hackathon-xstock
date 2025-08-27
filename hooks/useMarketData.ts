@@ -313,7 +313,6 @@ export function useMarketData() {
   } = useReadContracts({
     contracts: contractCalls,
   });
-  console.log({ contractResults });
 
   // Calculate market data using useMemo for performance
   const marketData = useMemo((): MarketData => {

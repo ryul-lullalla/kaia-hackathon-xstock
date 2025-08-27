@@ -78,7 +78,7 @@ export default function Home() {
   // Create dynamic stats using real data from the hook
   const stats = [
     {
-      label: "Total Assets",
+      label: "Total Supplied",
       value: `${formatNumber(lendingVaultData.formattedTotalAssets)} kxAPPLE`,
       change: "+12.5%",
     },
@@ -105,7 +105,7 @@ export default function Home() {
       <section className="text-center space-y-6">
         <div className="space-y-4">
           <h1 className="text-4xl md:text-6xl font-bold text-foreground">
-            Welcome to <span className="text-primary">xStock</span>
+            Welcome to <span className="text-primary">kStock</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             A decentralized lending protocol built on Kaia Network. Supply
@@ -148,7 +148,7 @@ export default function Home() {
             Core Features
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Explore all the features that make xStock a comprehensive DeFi
+            Explore all the features that make kStock a comprehensive DeFi
             platform
           </p>
         </div>
@@ -192,7 +192,7 @@ export default function Home() {
             How It Works
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Get started with xStock in three simple steps
+            Get started with kStock in three simple steps
           </p>
         </div>
 

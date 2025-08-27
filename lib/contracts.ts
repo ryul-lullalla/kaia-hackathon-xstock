@@ -45,7 +45,7 @@ export const TOKENS = {
   KXAPPLE: {
     address: CONTRACTS.KX_APPLE,
     symbol: "kxApple",
-    name: "KX Apple Stock",
+    name: "Kaia xStock APPL",
     decimals: 18,
   },
 } as const;

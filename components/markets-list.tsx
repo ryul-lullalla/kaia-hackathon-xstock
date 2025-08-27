@@ -14,6 +14,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { useRouter } from "next/navigation";
+import { SwapModal } from "@/components/swap-modal";
+import Image from "next/image";
 
 import {
   useCollateralBalance,
@@ -54,13 +56,12 @@ interface MarketData {
 export function MarketsList() {
   const { address: userAddress, isConnected } = useAccount();
   const [searchTerm, setSearchTerm] = useState("");
+  const [isSwapModalOpen, setIsSwapModalOpen] = useState(false);
   const { data: kxStockPrice } = useKxStockPrice();
-  console.log({ kxStockPrice });
 
   const viewData = useLendingVaultViewFunctions(userAddress);
 
   const { marketData } = useMarketData();
-  console.log({ marketData });
 
   const totalSupplyInETH = marketData.totalAssets
     ? `${formatTokenAmount(marketData.totalAssets, 18, 2)}`
@@ -153,7 +154,7 @@ export function MarketsList() {
       {/* Header */}
       <div className="space-y-4">
         <div>
-          <h1 className="text-3xl font-bold">KXStocks Markets</h1>
+          <h1 className="text-3xl font-bold">kxStocks Markets</h1>
           <p className="text-muted-foreground">
             Supply and borrow assets across different markets
           </p>
@@ -243,7 +244,14 @@ export function MarketsList() {
                     >
                       <td className="py-4 px-2">
                         <div className="flex items-center space-x-3">
-                          <div className="text-2xl">{market.icon}</div>
+                          {/* <div className="text-2xl">{market.icon}</div> */}
+                          <Image
+                            src="/XAPPL_LOGO.svg"
+                            alt="kxApple"
+                            width={36}
+                            height={36}
+                            className="rounded-full"
+                          />
                           <div>
                             <div className="font-semibold">{market.asset}</div>
                             <div className="text-sm text-muted-foreground">
@@ -294,12 +302,17 @@ export function MarketsList() {
                         </div>
                       </td>
                       <td className="py-4 px-2 text-right">
-                        <Link href={`/market`}>
-                          <Button variant="outline" size="sm">
-                            Go to Market
-                            {/* <ExternalLink className="h-4 w-4 ml-2" /> */}
-                          </Button>
-                        </Link>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setIsSwapModalOpen(true);
+                          }}
+                        >
+                          Swap
+                          {/* <ExternalLink className="h-4 w-4 ml-2" /> */}
+                        </Button>
                       </td>
                     </tr>
                   ))}
@@ -328,11 +341,13 @@ export function MarketsList() {
                         </Badge>
                       )}
                     </div>
-                    <Link href="/market">
-                      <Button variant="outline" size="sm">
-                        Go to Market
-                      </Button>
-                    </Link>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setIsSwapModalOpen(true)}
+                    >
+                      Swap
+                    </Button>
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
@@ -395,6 +410,12 @@ export function MarketsList() {
           )}
         </CardContent>
       </Card>
+
+      {/* Swap Modal */}
+      <SwapModal
+        isOpen={isSwapModalOpen}
+        onClose={() => setIsSwapModalOpen(false)}
+      />
     </div>
   );
 }

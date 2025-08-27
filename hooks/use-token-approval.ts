@@ -60,7 +60,6 @@ export function useTokenAllowance(
       enabled: !!(tokenAddress && owner && spender),
     },
   });
-  console.log({ allowance, spender });
 
   return { data: allowance || BigInt(0), ...rest };
 }

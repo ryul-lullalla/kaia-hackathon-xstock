@@ -33,7 +33,7 @@ export const modal = createAppKit({
   networks: [kairos],
   defaultNetwork: kairos,
   metadata: {
-    name: "xStock",
+    name: "kStock",
     description: "Lending and borrowing platform on Kaia Network",
     url: "https://kx-finance.vercel.app", // your app's url
     icons: ["https://avatars.githubusercontent.com/u/37784886"],

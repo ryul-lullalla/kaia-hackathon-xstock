@@ -95,7 +95,7 @@ export function CollateralSupply() {
         const receipt = await waitForTransactionReceipt(wagmiConfig, {
           hash: result,
         });
-        console.log({ receipt });
+
         if (!!receipt) {
           toast.success("Deposit Success!");
           refetchUsdtBalance();
@@ -121,7 +121,7 @@ export function CollateralSupply() {
       const receipt = await waitForTransactionReceipt(wagmiConfig, {
         hash: result,
       });
-      console.log({ receipt });
+
       if (!!receipt) {
         toast.success("Withdrawal Success!");
         refetchUsdtBalance();

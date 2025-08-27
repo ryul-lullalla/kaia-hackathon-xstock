@@ -17,6 +17,7 @@ import { formatTokenAmount } from "@/lib/utils";
 import { toast } from "sonner";
 import { DollarSign, Loader2 } from "lucide-react";
 import { TOKENS } from "@/lib/contracts";
+import { TokenIcon } from "@web3icons/react";
 
 export function UsdtFaucet() {
   const { address: userAddress, isConnected } = useAccount();
@@ -57,7 +58,7 @@ export function UsdtFaucet() {
     <Card className="w-full max-w-md">
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
-          <DollarSign className="h-5 w-5 text-green-600" />
+          <TokenIcon symbol="usdt" variant="branded" size="28" />
           USDT Faucet
         </CardTitle>
         <CardDescription>
