@@ -523,11 +523,8 @@ export function MarketDetail() {
       </div> */}
       <Card className="bg-slate-700 border-gray-600/50 text-white">
         <CardContent className="p-4">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              {/* <div className="w-12 h-12 bg-gradient-to-r from-orange-400 to-red-500 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold">kX</span>
-              </div> */}
               <Image
                 src="/XAPPL_LOGO.svg"
                 alt="kxApple"
@@ -541,34 +538,31 @@ export function MarketDetail() {
               </div>
             </div>
 
-            <div className="flex items-center gap-8">
-              <div className="text-center">
+            <div className="grid grid-cols-2 lg:flex lg:items-center gap-4 lg:gap-8">
+              <div className="text-center lg:text-left">
                 <div className="text-xs text-gray-400 mb-1">Supplied</div>
-                <div className="text-lg font-semibold text-white">
+                <div className="text-base lg:text-lg font-semibold text-white">
                   {`$${formatNumber(totalSupplyInUSD)}`}
                 </div>
               </div>
-              <div className="text-center">
+              <div className="text-center lg:text-left">
                 <div className="text-xs text-gray-400 mb-1">Borrowed</div>
-                <div className="text-lg font-semibold text-white">
+                <div className="text-base lg:text-lg font-semibold text-white">
                   {`$${formatNumber(totalBorrowInUSD)}`}
                 </div>
               </div>
-              <div className="text-center">
+              <div className="text-center lg:text-left">
                 <div className="text-xs text-gray-400 mb-1">
                   Utilization Rate
                 </div>
-                <div className="text-lg font-semibold text-white">
+                <div className="text-base lg:text-lg font-semibold text-white">
                   {formatNumber(utilizationRate.toFixed(2))}%
                 </div>
               </div>
-              <div className="text-center">
+              <div className="text-center lg:text-left">
                 <div className="text-xs text-gray-400 mb-1">Oracle price</div>
-                <div className="text-lg font-semibold text-white flex items-center gap-1">
+                <div className="text-base lg:text-lg font-semibold text-white flex items-center justify-center lg:justify-start gap-1">
                   {`$${formatNumber(kxStockPrice)}`}
-                  {/* <button className="p-1 hover:bg-gray-700 rounded">
-                    <ArrowUpCircle className="w-3 h-3 text-gray-400" />
-                  </button> */}
                 </div>
               </div>
             </div>
@@ -788,8 +782,8 @@ export function MarketDetail() {
                 </h3>
                 <div className="flex flex-col divide-y-3">
                   <div>
-                    <div className="flex items-center h-full gap-2 mb-6 divide-x-1 ">
-                      <div className="flex items-center gap-4 pr-4">
+                    <div className="flex flex-col lg:flex-row lg:items-center h-full gap-4 lg:gap-2 mb-6 lg:divide-x-1">
+                      <div className="flex items-center gap-4 lg:pr-4">
                         <CircularProgress
                           percentage={Number(supplyShare) * 100}
                           size={80}
@@ -801,7 +795,7 @@ export function MarketDetail() {
                           <div className="text-sm text-gray-400">
                             Total Reserve
                           </div>
-                          <div className="text-lg font-semibold">
+                          <div className="text-base lg:text-lg font-semibold">
                             {formatNumber(
                               SafeMath.subtract(
                                 totalSupplyInETH,
@@ -818,9 +812,9 @@ export function MarketDetail() {
                         </div>
                       </div>
 
-                      <div className="pl-4">
+                      <div className="lg:pl-4">
                         <div className="text-sm text-gray-400">Supply APY</div>
-                        <div className="text-lg font-semibold text-white">
+                        <div className="text-base lg:text-lg font-semibold text-white">
                           {formatNumber(supplyAPY.toFixed(2))}%
                         </div>
                       </div>
@@ -861,8 +855,8 @@ export function MarketDetail() {
                 <h3 className="text-base font-medium mb-4 text-gray-300">
                   Borrow Info
                 </h3>
-                <div className="flex items-center h-full gap-2 mb-6 divide-x-1 ">
-                  <div className="flex items-center gap-4 pr-4">
+                <div className="flex flex-col lg:flex-row lg:items-center h-full gap-4 lg:gap-2 mb-6 lg:divide-x-1">
+                  <div className="flex items-center gap-4 lg:pr-4">
                     <CircularProgress
                       percentage={Number(borrowShare) * 100}
                       size={80}
@@ -872,7 +866,7 @@ export function MarketDetail() {
                     />
                     <div>
                       <div className="text-sm text-gray-400">Total Borrow</div>
-                      <div className="text-lg font-semibold">
+                      <div className="text-base lg:text-lg font-semibold">
                         {formatNumber(totalBorrowInETH)} of{" "}
                         {formatNumber(totalSupplyInETH)}
                       </div>
@@ -883,9 +877,9 @@ export function MarketDetail() {
                       </div>
                     </div>
                   </div>
-                  <div className="pl-4 ">
+                  <div className="lg:pl-4">
                     <div className="text-sm text-gray-400">Borrow APY</div>
-                    <div className="text-lg font-semibold text-white">
+                    <div className="text-base lg:text-lg font-semibold text-white">
                       {formatNumber(borrowAPY.toFixed(2))}%
                     </div>
                   </div>

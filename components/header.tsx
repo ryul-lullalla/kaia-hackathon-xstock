@@ -71,10 +71,12 @@ export function Header() {
   return (
     <header className="border-b border-border/40 bg-background/80 backdrop-blur-sm sticky top-0 z-50">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <div className="flex items-center space-x-6">
+        <div className="flex items-center space-x-4 lg:space-x-6">
           <div className="flex items-center space-x-3">
             <Link href="/" className="flex items-center space-x-2">
-              <h1 className="text-2xl font-bold text-primary">kStock</h1>
+              <h1 className="text-xl sm:text-2xl font-bold text-primary">
+                kStock
+              </h1>
             </Link>
           </div>
 
@@ -148,12 +150,12 @@ export function Header() {
 
           {/* Drawer */}
           <div
-            className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-background border-l border-border/40 z-50 xl:hidden transform transition-transform duration-300 ease-in-out ${
+            className={`fixed top-0 right-0 h-full w-72 max-w-[80vw] bg-background border-l border-border/40 z-50 xl:hidden transform transition-transform duration-300 ease-in-out ${
               isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
             }`}
           >
             {/* Drawer Header */}
-            <div className="flex items-center justify-between p-4 border-b border-border/40">
+            <div className="flex items-center justify-between p-4 bg-background border-b border-border/40">
               <h2 className="text-lg font-semibold">Navigation</h2>
               <Button
                 variant="ghost"
@@ -167,7 +169,7 @@ export function Header() {
             </div>
 
             {/* Drawer Navigation */}
-            <nav className="p-4">
+            <nav className="p-4 bg-background border border-border/40">
               <div className="flex flex-col space-y-2">
                 {navigationItems.map((item) => {
                   const Icon = item.icon;

@@ -14,7 +14,7 @@ _A next-generation lending protocol for tokenized stocks with unprecedented user
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 [![Kaia](https://img.shields.io/badge/Kaia-Testnet-FF6B6B?style=for-the-badge)](https://kaia.io/)
 
-[🚀 Live Demo](https://your-demo-url.vercel.app) • [🎯 Pitch Deck](https://drive.google.com/file/d/1iwgdGNB7Xt0wehWYepVSnUk-fcrzDA0a/view?usp=sharing)
+[🚀 Live Demo](https://kaia-hackathon-xstock.vercel.app) • [🎯 Pitch Deck](https://drive.google.com/file/d/1iwgdGNB7Xt0wehWYepVSnUk-fcrzDA0a/view?usp=sharing)
 
 </div>
 
@@ -236,20 +236,30 @@ const PROTOCOL_CONFIG = {
 
 ## 📸 Screenshots
 
-### Dashboard
-
-![Dashboard](./docs/images/dashboard.png)
-_Real-time portfolio overview with market statistics_
-
 ### Market Interface
 
-![Market](./docs/images/market.png)
-_Intuitive lending and borrowing interface_
+![Kaia xStock Market](./docs/images/market_detail.png)
+_lending and borrowing against tokenized versions of real-world assets_
 
-### Mobile Experience
+### Supply xStocks in Kaia
 
-![Mobile](./docs/images/mobile.png)
-_Fully responsive design optimized for mobile_
+![Supply xStocks](./docs/images/market_supply.png)
+_supply xStocks into Lending Pool get decentralized yield permissionlessly_
+
+### Borrow xStocks in Kaia
+
+![Borrow xStocks](./docs/images/market_borrow.png)
+_borrow xStocks against stable collateral. experiencing holding tokenized versions of real-world assets against Stable Assets_
+
+### Provide xStocks as Liquidity in Kaia
+
+![Provide liquidity with xStocks](./docs/images/market_lp.png)
+_make more yield by providing xStocks_
+
+### More Markets are coming!
+
+![Markets](./docs/images/markets.png)
+_Keep eye on kStock as additional tokenized stocks are coming (TSLA, NVDA, GOOGL)_
 
 ---
 
@@ -264,6 +274,9 @@ _Fully responsive design optimized for mobile_
 ### Phase 2: Enhancement 🚧
 
 - [ ] Additional tokenized stocks (TSLA, NVDA, GOOGL)
+- [ ] Brdige USDT from Kaia to Solana
+- [ ] Trade Solana xStock with CEX-like experience
+- [ ] Trade Solana xStock as ETFs
 - [ ] Advanced analytics dashboard
 - [ ] Mobile app development
 
@@ -279,11 +292,11 @@ _Fully responsive design optimized for mobile_
 
 <div align="center">
 
-| ![Avatar](https://github.com/username1.png?size=100) | ![Avatar](https://github.com/username2.png?size=100) | ![Avatar](https://github.com/username3.png?size=100) |
-| :--------------------------------------------------: | :--------------------------------------------------: | :--------------------------------------------------: |
-|                 **[Team Member 1]**                  |                 **[Team Member 2]**                  |                 **[Team Member 3]**                  |
-|                 Full-Stack Developer                 |               Smart Contract Engineer                |                    UI/UX Designer                    |
-|       [@github1](https://github.com/username1)       |       [@github2](https://github.com/username2)       |       [@github3](https://github.com/username3)       |
+| ![Avatar](https://github.com/username1.png?size=100) | ![Avatar](https://github.com/username2.png?size=100) | ![Avatar](https://github.com/username3.png?size=100) | ![Avatar](https://github.com/username3.png?size=100) |
+| :--------------------------------------------------: | :--------------------------------------------------: | :--------------------------------------------------: | :--------------------------------------------------: |
+|                       **Keni**                       |                      **Chris**                       |                      **Pengun**                      |                      **g0ddog**                      |
+|                    Web3 Strategy                     |                Web3 Community expert                 |              Smart Contract & Security               |                  FrontEnd Develper                   |
+|                                                      |                                                      |                                                      |                                                      |
 
 </div>
 
@@ -319,11 +332,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🌐 Links & Resources
 
-- 🌍 **Website**: [kstock.kaia.io](https://kstock.kaia.io)
-- 📚 **Documentation**: [docs.kstock.kaia.io](https://docs.kstock.kaia.io)
-- 🐦 **Twitter**: [@kStockProtocol](https://twitter.com/kStockProtocol)
-- 💬 **Discord**: [Join our community](https://discord.gg/kstock)
-- 📧 **Email**: team@kstock.kaia.io
+- 🌍 **Website**: [kaia-hackathon-xstock.vercel.app](https://kaia-hackathon-xstock.vercel.app)
+- 📚 **Pitch Deck**: [Pitch Deck](https://drive.google.com/file/d/1iwgdGNB7Xt0wehWYepVSnUk-fcrzDA0a/view?usp=sharing)
+- 🐦 **Telegram**: [kaiaxStock](https://t.me/kaiastock)
 
 ---
 

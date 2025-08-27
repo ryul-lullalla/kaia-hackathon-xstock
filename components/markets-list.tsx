@@ -322,13 +322,24 @@ export function MarketsList() {
           </div>
 
           {/* Mobile Cards */}
-          <div className="md:hidden space-y-4">
+          <div
+            className="md:hidden space-y-4"
+            onClick={() => {
+              router.push(`/market`);
+            }}
+          >
             {filteredMarkets.map((market) => (
               <Card key={market.symbol}>
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center space-x-3">
-                      <div className="text-2xl">{market.icon}</div>
+                      <Image
+                        src="/XAPPL_LOGO.svg"
+                        alt="kxApple"
+                        width={32}
+                        height={32}
+                        className="rounded-full"
+                      />
                       <div>
                         <div className="font-semibold">{market.asset}</div>
                         <div className="text-sm text-muted-foreground">
@@ -344,7 +355,10 @@ export function MarketsList() {
                     <Button
                       variant="outline"
                       size="sm"
-                      onClick={() => setIsSwapModalOpen(true)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setIsSwapModalOpen(true);
+                      }}
                     >
                       Swap
                     </Button>

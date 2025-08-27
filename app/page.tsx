@@ -95,7 +95,7 @@ export default function Home() {
     {
       label: "Borrow APY",
       value: `${formatNumber(lendingVaultData.borrowAPY)} %`,
-      change: "+1.5",
+      change: "+1.5%",
     },
   ];
 
@@ -104,10 +104,10 @@ export default function Home() {
       {/* Hero Section */}
       <section className="text-center space-y-6">
         <div className="space-y-4">
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-foreground">
             Welcome to <span className="text-primary">kStock</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
             A decentralized lending protocol built on Kaia Network. Supply
             liquidity, borrow against collateral, and earn yield on your digital
             assets.
