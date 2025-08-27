@@ -389,8 +389,27 @@ export function MarketDetail() {
   const handleRepay = async () => {
     if (!userAddress || !modalRepayAmount) return;
     try {
-      repay(modalRepayAmount, userAddress);
-      toast.info("Repay submitted");
+      const result = await repay(modalRepayAmount, userAddress);
+      console.log({ result });
+      if (!!result) {
+        toast.success("Repay submitted");
+        const receipt = await waitForTransactionReceipt(wagmiConfig, {
+          hash: result,
+        });
+        console.log({ receipt });
+        if (!!receipt) {
+          toast.success("Repaid Successfully!");
+          refetchKxStockBalance();
+          refetchCompleteMarketData();
+          refetchCollateralBalance();
+          setIsRepayModalOpen(false);
+          setModalRepayAmount("");
+        } else {
+          toast.error("Repay failed");
+        }
+      } else {
+        toast.error("Repay failed");
+      }
     } catch (error) {
       toast.error("Repay failed");
     }
@@ -628,7 +647,7 @@ export function MarketDetail() {
                       </div>
                       <div className="flex items-center gap-[2px]">
                         <div className="text-lg font-semibold">
-                          {userCollateralAmount}
+                          {formatNumber(userCollateralAmount)}
                         </div>
                         <div className="text-lg font-semibold text-muted-foreground">
                           USDT
@@ -1338,13 +1357,13 @@ export function MarketDetail() {
             {modalRepayAmount && (
               <div
                 className={`p-3 rounded-lg border ${
-                  needsApproval(modalRepayAmount, "repay")
+                  needsApproval(modalRepayAmount, "supply")
                     ? "bg-orange-500/10 border-orange-500/20"
                     : "bg-green-500/10 border-green-500/20"
                 }`}
               >
                 <div className="flex items-center gap-2 text-sm">
-                  {needsApproval(modalRepayAmount, "repay") ? (
+                  {needsApproval(modalRepayAmount, "supply") ? (
                     <>
                       <CheckCircle className="h-4 w-4 text-orange-400" />
                       <span className="text-orange-300">
@@ -1385,7 +1404,7 @@ export function MarketDetail() {
                 Cancel
               </Button>
 
-              {modalRepayAmount && needsApproval(modalRepayAmount, "repay") ? (
+              {modalRepayAmount && needsApproval(modalRepayAmount, "supply") ? (
                 <Button
                   className="flex-1 bg-blue-600 hover:bg-blue-700"
                   disabled={

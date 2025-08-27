@@ -125,18 +125,18 @@ export function useBorrow() {
 }
 
 export function useRepay() {
-  const { writeContract, data: hash, isPending } = useWriteContract();
+  const { writeContractAsync, data: hash, isPending } = useWriteContract();
 
   const repay = useCallback(
     (assets: string, onBehalfOf: string) => {
       const assetsWei = parseUnits(assets, 18);
-      writeContract({
+      return writeContractAsync({
         ...lendingVaultContract,
         functionName: "repay",
         args: [assetsWei, onBehalfOf],
       });
     },
-    [writeContract]
+    [writeContractAsync]
   );
 
   return { repay, hash, isPending };

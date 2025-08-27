@@ -3,23 +3,23 @@
 import { useWriteContract } from "wagmi";
 import { parseUnits } from "viem";
 import { useMemo } from "react";
-import { kxStockContract } from "@/lib/contracts";
+import { mockUsdtContract } from "@/lib/contracts";
 
-// KX Stock Faucet hook
-export function useKxStockMint() {
-  const { writeContractAsync, data: hash, isPending } = useWriteContract();
+// USDT Faucet hook
+export function useUsdtMint() {
+  const { writeContract, data: hash, isPending } = useWriteContract();
 
   // Memoize the mint function
   const mint = useMemo(
     () => (to: string, amount: string) => {
       const amountWei = parseUnits(amount, 18);
-      return writeContractAsync({
-        ...kxStockContract,
+      writeContract({
+        ...mockUsdtContract,
         functionName: "mint",
         args: [to, amountWei],
       });
     },
-    [writeContractAsync]
+    [writeContract]
   );
 
   return { mint, hash, isPending };

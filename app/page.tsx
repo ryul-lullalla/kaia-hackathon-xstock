@@ -19,21 +19,23 @@ import {
 } from "@/components/ui/card";
 import { useLendingVaultViewFunctions } from "@/hooks/use-contracts";
 import { useAccount } from "wagmi";
+import { formatNumber } from "@/lib/utils";
+import { useCompleteMarketData, useMarketData } from "@/hooks/useMarketData";
 
 const features = [
   {
     title: "Markets Overview",
     description:
-      "Explore all available markets and see real-time lending and borrowing data.",
+      "Explore all available markets of xStocks and see real-time lending and borrowing data.",
     icon: BarChart3,
     href: "/markets",
     color: "text-blue-500",
     bgColor: "bg-blue-50 dark:bg-blue-950/20",
   },
   {
-    title: "kxApple Market",
+    title: "kxStock Market",
     description:
-      "Supply, borrow, and trade kxApple tokens in our unified market interface.",
+      "Supply, borrow, and trade kxAPPLE tokens in our unified market interface.",
     icon: TrendingUp,
     href: "/market",
     color: "text-green-500",
@@ -42,7 +44,7 @@ const features = [
   {
     title: "Get Free Tokens",
     description:
-      "Start by minting free kxApple tokens from our faucet to explore the protocol.",
+      "Start by minting free kxAPPLE tokens from our faucet to explore the protocol.",
     icon: Coins,
     href: "/faucet",
     color: "text-purple-500",
@@ -71,29 +73,29 @@ export default function Home() {
   const { address } = useAccount();
 
   // Test the new lending vault view functions hook
-  const lendingVaultData = useLendingVaultViewFunctions(address);
+  const { marketData: lendingVaultData } = useMarketData();
 
   // Create dynamic stats using real data from the hook
   const stats = [
     {
       label: "Total Assets",
-      value: `${lendingVaultData.formattedTotalAssets} USDT`,
+      value: `${formatNumber(lendingVaultData.formattedTotalAssets)} kxAPPLE`,
       change: "+12.5%",
     },
     {
       label: "Total Borrowed",
-      value: `${lendingVaultData.formattedTotalBorrows} USDT`,
+      value: `${formatNumber(lendingVaultData.formattedTotalBorrows)} kxAPPLE`,
       change: "+8.3%",
     },
     {
-      label: "Borrow Cap",
-      value: `${lendingVaultData.formattedBorrowCap} USDT`,
-      change: "Cap",
+      label: "Supply APY",
+      value: `${formatNumber(lendingVaultData.supplyAPY)} %`,
+      change: "+10.3%",
     },
     {
-      label: "Min Cash",
-      value: `${lendingVaultData.formattedMinCash} USDT`,
-      change: "Reserve",
+      label: "Borrow APY",
+      value: `${formatNumber(lendingVaultData.borrowAPY)} %`,
+      change: "+1.5",
     },
   ];
 
@@ -119,7 +121,7 @@ export default function Home() {
             </Link>
           </Button>
           <Button asChild variant="outline" size="lg" className="text-lg px-8">
-            <Link href="/market">Trade kxApple</Link>
+            <Link href="/market">Trade kxAPPLE</Link>
           </Button>
         </div>
       </section>
@@ -138,45 +140,6 @@ export default function Home() {
           </Card>
         ))}
       </section>
-
-      {/* Debug Section - Display current user data if connected */}
-      {address && (
-        <section className="bg-gray-50 dark:bg-gray-900 p-6 rounded-lg">
-          <h3 className="text-lg font-semibold mb-4">
-            Your Account Data (Check Console for Full Details)
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-            <div>
-              <p className="text-muted-foreground">Your Balance</p>
-              <p className="font-mono">
-                {lendingVaultData.formattedBalanceOf} USDT
-              </p>
-            </div>
-            <div>
-              <p className="text-muted-foreground">Your Assets</p>
-              <p className="font-mono">
-                {lendingVaultData.formattedAssetsOf} USDT
-              </p>
-            </div>
-            <div>
-              <p className="text-muted-foreground">Your Debt</p>
-              <p className="font-mono">
-                {lendingVaultData.formattedDebtOf} USDT
-              </p>
-            </div>
-            <div>
-              <p className="text-muted-foreground">Your Collateral</p>
-              <p className="font-mono">
-                {lendingVaultData.formattedCollateralAmount} USDT
-              </p>
-            </div>
-          </div>
-          <p className="text-xs text-muted-foreground mt-4">
-            📱 Open browser console (F12) to see all lending vault view function
-            data
-          </p>
-        </section>
-      )}
 
       {/* Features Grid */}
       <section className="space-y-8">
@@ -240,7 +203,7 @@ export default function Home() {
             </div>
             <h3 className="text-xl font-semibold">Connect & Get Tokens</h3>
             <p className="text-muted-foreground">
-              Connect your wallet and mint free kxApple tokens from our faucet
+              Connect your wallet and mint free kxAPPLE tokens from our faucet
             </p>
           </div>
 

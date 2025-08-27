@@ -36,7 +36,7 @@ export default function RootLayout({
             <main className="container mx-auto px-4 py-8">{children}</main>
             <footer className="border-t border-border/40 mt-12 py-8">
               <div className="container mx-auto px-4 text-center text-muted-foreground">
-                <p>© 2024 xStock. Built on Kaia Network for the hackathon.</p>
+                <p>© 2025 xStock. Built on Kaia Network for the hackathon.</p>
               </div>
             </footer>
           </div>
