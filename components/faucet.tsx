@@ -69,7 +69,7 @@ export function Faucet() {
           <div className="p-3 bg-secondary/50 rounded-lg">
             <div className="text-sm text-muted-foreground">Your Balance</div>
             <div className="text-lg font-semibold">
-              {formatTokenAmount(balance)} kxApple
+              {formatTokenAmount(balance as bigint)} kxApple
             </div>
           </div>
         )}
