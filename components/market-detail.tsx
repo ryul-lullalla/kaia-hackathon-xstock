@@ -517,14 +517,6 @@ export function MarketDetail() {
                 <h2 className="text-lg font-semibold text-white">kxAPPLE</h2>
                 <p className="text-sm text-gray-400">kaia xAPPLE</p>
               </div>
-              <div className="flex items-center gap-2 ml-4">
-                <button className="p-1 hover:bg-gray-700 rounded">
-                  <ArrowUpCircle className="w-4 h-4 text-gray-400" />
-                </button>
-                <button className="p-1 hover:bg-gray-700 rounded">
-                  <ArrowDownCircle className="w-4 h-4 text-gray-400" />
-                </button>
-              </div>
             </div>
 
             <div className="flex items-center gap-8">
@@ -938,7 +930,7 @@ export function MarketDetail() {
       </div>
 
       {/* Market Info  */}
-      <Card>
+      {/* <Card>
         <CardHeader>
           <CardTitle>Market Information</CardTitle>
           <CardDescription>
@@ -980,7 +972,7 @@ export function MarketDetail() {
             </div>
           </div>
         </CardContent>
-      </Card>
+      </Card> */}
 
       {/* Supply Modal */}
       <Dialog open={isSupplyModalOpen} onOpenChange={setIsSupplyModalOpen}>
